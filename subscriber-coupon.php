@@ -1,7 +1,7 @@
 <?php
 /**
  * Example of filter on each message sent to subscribers to customize per
- * subscriber.
+ * subscriber. The filter replace the tag {coupon} computing it for each subscriber.
  */
 
 /**
@@ -10,7 +10,9 @@
 add_filter('newsletter_message', 'my_newsletter_message_filter', 10, 3);
 
 /**
- * Function invoked for EACH message ready to be sent ot a subscriber.
+ * Function invoked for EACH message when ready to be sent to a subscriber.
+ * It looks for the tag {coupon} and replace it with the result of a coupon generating
+ * shortcode (a fake shortcode in this example...).
  * 
  * @param TNP_Mailer_Message $message
  * @param TNP_User $subscriber
